@@ -6,19 +6,12 @@ var squareArray = [];
 
 $(document).ready(function() {
     squareSelection();
-    setInterval(timing, 1000);
+    // setInterval(buttonClick, 1000);
+    buttons();
+    buttonClick();
+
 });
 
-
-
-//HIGHLIGHT TIMING
-function timing() {
-    count++;
-    if (count == squareTabs) {
-        count = 0;
-    }
-    highlightTabs();
-}
 
 // SQUARE TABS
 function squareSelection() {
@@ -30,27 +23,7 @@ function squareSelection() {
     }
     // $('.tab').on("click", function() {
     //   appendDom();
-    highlightTabs();
 }
-//HIGHLIGHT
-function highlightTabs() {
-    for (var i = 0; i < squareArray.length; i++) {
-        $(squareArray[i]).removeClass("highlight");
-        if (squareArray[i].data("id") == count) {
-            squareArray[i].addClass("highlight");
-        }
-    }
-}
-
-//BUTTONS
-function buttons() {
-    $('.container').append('<div><button>Prev</button></div>',
-        '<div><button>Next</button></div>');
-    $('.button').on('click', 'button', function() {});
-    highlightTabs();
-}
-
-
 
 //PEOPLE ARRAY
 function appendDom() {
@@ -59,5 +32,49 @@ function appendDom() {
         var $el = $('.container').children().last();
         $el.append('</p>' + peopleArray[i].name + '</p>');
         $el.append('</p>' + peopleArray[i].shoutout + '</p>');
+    }
+}
+
+
+//BUTTONS
+function buttons() {
+    $('.container').append('<div id="prev"><button>Prev</button></div>',
+        '<div id="next"><button>Next</button></div>');
+}
+
+function buttonClick() {
+  $('#next').on('click', 'button', function() {
+    timingNext();
+    });
+  $('#prev').on('click', 'button', function() {
+    timingPrev();
+  });
+}
+
+
+//HIGHLIGHT TIMING
+function timingNext() {
+    count++;
+    if (count == squareTabs) {
+        count = 0;
+    }
+    highlightSquares();
+}
+
+function timingPrev() {
+    count--;
+    if (count == squareTabs) {
+        count = 0;
+    }
+    highlightSquares();
+}
+
+//HIGHLIGHT
+function highlightSquares() {
+    for (var i = 0; i < squareArray.length; i++) {
+        $(squareArray[i]).removeClass("highlight");
+        if (squareArray[i].data("id") == count) {
+            squareArray[i].addClass("highlight");
+        }
     }
 }
