@@ -3,7 +3,7 @@ var squareTabs = 20;
 var squareArray = [];
 
 $(document).ready(function() {
-// squareSelection();
+squareSelection();
 buttons();
 });
 
@@ -13,7 +13,8 @@ function squareSelection() {
     for (var i = 0; i < squareTabs; i++) {
         $(".container").append("<div class='tab'></div>");
         var $el = $('.container').children().last();
-
+        squareArray.push($el);
+        console.log(squareArray);
     }
     // $('.tab').on("click", function() {
     //   appendDom();
