@@ -2,42 +2,54 @@ var count = 0;
 var squareTabs = 20;
 var squareArray = [];
 
+
+
 $(document).ready(function() {
-squareSelection();
-buttons();
+    squareSelection();
+    setInterval(timing, 1000);
 });
 
+
+
+//HIGHLIGHT TIMING
+function timing() {
+    count++;
+    if (count == squareTabs) {
+        count = 0;
+    }
+    highlightTabs();
+}
 
 // SQUARE TABS
 function squareSelection() {
     for (var i = 0; i < squareTabs; i++) {
         $(".container").append("<div class='tab'></div>");
         var $el = $('.container').children().last();
+        $el.data("id", i);
         squareArray.push($el);
-        console.log(squareArray);
     }
     // $('.tab').on("click", function() {
     //   appendDom();
-  }
-
+    highlightTabs();
+}
+//HIGHLIGHT
+function highlightTabs() {
+    for (var i = 0; i < squareArray.length; i++) {
+        $(squareArray[i]).removeClass("highlight");
+        if (squareArray[i].data("id") == count) {
+            squareArray[i].addClass("highlight");
+        }
+    }
+}
 
 //BUTTONS
 function buttons() {
     $('.container').append('<div><button>Prev</button></div>',
         '<div><button>Next</button></div>');
-    $('.button').on('click', 'button', function() {
-
-    });
+    $('.button').on('click', 'button', function() {});
+    highlightTabs();
 }
 
-//COUNTER
-function counter() {
-    $('.tab').on("click", function() {
-        console.log('count');
-        // count++;
-        // $(this).before().text('count' + count);
-    });
-}
 
 
 //PEOPLE ARRAY
@@ -48,8 +60,4 @@ function appendDom() {
         $el.append('</p>' + peopleArray[i].name + '</p>');
         $el.append('</p>' + peopleArray[i].shoutout + '</p>');
     }
-}
-
-//HIGHLIGHT
-function highlight() {
 }
