@@ -6,9 +6,34 @@ var shoutoutArray = [];
 $(document).ready(function() {
     appendDom();
 
-    // buttons();
-    // buttonClick();
+    buttons();
+    buttonClick();
+
 });
+
+
+//BUTTONS
+function buttons() {
+    $('.container').append('<div id="prev"><button>Prev</button></div>',
+        '<div id="next"><button>Next</button></div>');
+}
+
+function buttonClick() {
+    $('#next').on('click', function() {
+      count++;
+      if (count == squares) {
+        count = 0;
+      }
+      highlightSquares();
+    });
+    $('#prev').on('click', function() {
+      count--;
+      if (count == squares) {
+        count = 0;
+      }
+      highlightSquares();
+    });
+}
 
 
 function appendDom() {
@@ -28,49 +53,34 @@ function appendDom() {
 highlightSquares();
 }
 
-
 //HIGHLIGHT
 function highlightSquares() {
     for (var i = 0; i < squareArray.length; i++) {
-        if (squareArray[i].data("id") == count) {
+        if (squareArray[i].data("square") == count) {
             shoutoutArray[i].show();
-            squareArray[i].addClass("highlight");
-        } else if (squareArray[i].data("id") != count) {
+            $(squareArray[i]).addClass("highlight");
+        } else if (squareArray[i].data("square") != count) {
             shoutoutArray[i].hide();
             $(squareArray[i]).removeClass("highlight");
-        } {
-
         }
     }
 }
 
-//BUTTONS
-function buttons() {
-    $('.container').append('<div id="prev"><button>Prev</button></div>',
-        '<div id="next"><button>Next</button></div>');
-}
-
-function buttonClick() {
-    $('#next').on('click', function() {
-        timingNext();
-    });
-    $('#prev').on('click', function() {
-        timingPrev();
-    });
-}
 
 
 //HIGHLIGHT TIMING
-function timingNext() {
-    count++;
-    if (count == squares) {
-    }
-    appendDom();
-}
-
-function timingPrev() {
-    count--;
-    if (count == squares) {
-    }
-    appendDom();
-}
+// function timingNext() {
+//     count++;
+//     if (count == squares) {
+//       count = 0;
+//     }
+//     highlightSquares();
+// }
+//
+// function timingPrev() {
+//     count--;
+//     if (count == squares) {
+//       count = 0;
+//     }
+//     highlightSquares();
+// }
