@@ -7,7 +7,6 @@ $(document).ready(function() {
     appendDom();
     buttons();
     buttonClick();
-$('.page').text("page: " + (count)+"/19");
 });
 
 function appendDom() {
@@ -62,6 +61,7 @@ function highlightSquares() {
             shoutoutArray[i].hide();
         }
     }
+    $('.page').text("Page Number: "+(count+1)+"/19");
 }
 
 
