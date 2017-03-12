@@ -20,7 +20,7 @@ function appendDom() {
 
         $('.container').append('<div class="info"></div>');
         var $pl = $('.container').children().last();
-        $pl.append('<h3>' + peopleArray[i].name + '<h3>',
+        $pl.append('<h2>' + peopleArray[i].name + '<h2>',
                   '<h4>' + peopleArray[i].shoutout + '<h4>');
 }
 }

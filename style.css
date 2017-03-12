@@ -1,12 +1,9 @@
-.container {
+h1 {
+  text-align: center;
 
 }
 
-.count {
-
-}
-
-.tab {
+.square {
   background-color: aqua;
   width: 30px;
   height: 30px;
