@@ -7,7 +7,7 @@ $(document).ready(function() {
     appendDom();
     buttons();
     buttonClick();
-
+$('.page').text("page: " + (count)+"/19");
 });
 
 function appendDom() {
