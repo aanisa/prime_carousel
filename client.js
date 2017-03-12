@@ -7,8 +7,6 @@ $(document).ready(function() {
     appendDom();
     buttons();
     buttonClick();
-    clickSquare();
-
 });
 
 
