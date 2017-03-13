@@ -1,6 +1,6 @@
 var index = 0;
-var squares = peopleArray.length;
-var squareArray = [];
+var circles = peopleArray.length;
+var circleArray = [];
 var shoutoutArray = [];
 
 $(document).ready(function() {
@@ -11,11 +11,11 @@ $(document).ready(function() {
 
 
 function appendDom() {
-    for (var i = 0; i < squares; i++) {
-        $(".container").append("<div class='square'></div>");
-        var $sq = $('.container').children().last();
-        $sq.data("squareIndex", i);
-        squareArray.push($sq);
+    for (var i = 0; i < circles; i++) {
+        $(".container").append("<div class='circle'></div>");
+        var $cr = $('.container').children().last();
+        $cr.data("circleIndex", i);
+        circleArray.push($cr);
 
 
         $('.info').append('<div></div>');
@@ -28,7 +28,7 @@ function appendDom() {
         //storing the entire array into the element
     }
 
-    highlightSquares();
+    highlightCircles();
 }
 
 
@@ -41,10 +41,10 @@ function buttonClick() {
     $('.next').on('click', function() {
         $('.info').fadeOut(2000, function() {
             index++;
-            if (index >= squares) {
+            if (index >= circles) {
                 index = 0;
             }
-            highlightSquares();
+            highlightCircles();
             $('.info').fadeIn(2000);
         });
 
@@ -53,26 +53,26 @@ function buttonClick() {
         $('.info').fadeOut(2000, function() {
             index--;
             if (index < 0) {
-                index = squares - 1;
+                index = circles - 1;
             }
-            highlightSquares();
+            highlightCircles();
             $('.info').fadeIn(2000);
         });
     });
 
-    $('.square').on("click", function() {
-        index = parseInt($(this).data("squareIndex"));
-        highlightSquares();
+    $('.circle').on("click", function() {
+        index = parseInt($(this).data("circleIndex"));
+        highlightCircles();
     });
 }
 
-function highlightSquares() {
+function highlightCircles() {
     for (var i = 0; i < shoutoutArray.length; i++) {
-        if (squareArray[i].data("squareIndex") == index) {
-            $(squareArray[i]).addClass("highlight");
+        if (circleArray[i].data("circleIndex") == index) {
+            $(circleArray[i]).addClass("highlight");
             shoutoutArray[i].show();
-        } else if (squareArray[i].data("squareIndex") != index) {
-            $(squareArray[i]).removeClass("highlight");
+        } else if (circleArray[i].data("circleIndex") != index) {
+            $(circleArray[i]).removeClass("highlight");
             shoutoutArray[i].hide();
         }
     }
