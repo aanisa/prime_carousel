@@ -21,7 +21,7 @@ function appendDom() {
         $('.info').append('<div></div>');
         var $pl = $('.info').children().last();
         $pl.append('<p class="name">' + peopleArray[i].name + '<p>',
-                   '<p class="shout">' + peopleArray[i].shoutout + '<p>');
+            '<p class="shout">' + peopleArray[i].shoutout + '<p>');
         $pl.data("person", i);
         shoutoutArray.push($pl);
         // peopleArray[i] = $pl; Can do this instead of pushig into a newarray
@@ -38,26 +38,26 @@ function buttons() {
 
 function buttonClick() {
     $('.next').on('click', function() {
-      $('.info').fadeOut(2000, function(){
-        index++;
-        if (index >= squares) {
-            index = 0;
-        }
-       highlightSquares();
-       $('.info').fadeIn(2000);
-      })
+        $('.info').fadeOut(2000, function() {
+            index++;
+            if (index >= squares) {
+                index = 0;
+            }
+            highlightSquares();
+            $('.info').fadeIn(2000);
+        });
 
     });
     $('.prev').on('click', function() {
-      $('.info').fadeOut(2000, function(){
-        index--;
-        if (index < 0) {
-            index = squares -1;
-        }
-        highlightSquares();
-        $('.info').fadeIn(2000);
+        $('.info').fadeOut(2000, function() {
+            index--;
+            if (index < 0) {
+                index = squares - 1;
+            }
+            highlightSquares();
+            $('.info').fadeIn(2000);
+        });
     });
-  });
 }
 
 function highlightSquares() {
