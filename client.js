@@ -57,11 +57,11 @@ function highlightSquares() {
     for (var i = 0; i < shoutoutArray.length; i++) {
         if (squareArray[i].data("square") == index) {
             $(squareArray[i]).addClass("highlight");
-            shoutoutArray[i].fadeIn(4000);
+            shoutoutArray[i].fadeIn(2000);
         } else if (squareArray[i].data("square") != index) {
             $(squareArray[i]).removeClass("highlight");
             shoutoutArray[i].hide();
         }
     }
-    $('.page').text("Chiyak: " + (index + 1) + "/19");
+    $('.page').text("Chiyak: " + (index + 1) + "/" + peopleArray.length);
 }
