@@ -39,15 +39,15 @@ function buttons() {
 function buttonClick() {
     $('.next').on('click', function() {
         index++;
-        if (index == squares) {
+        if (index >= squares) {
             index = 0;
         }
        highlightSquares();
     });
     $('.prev').on('click', function() {
         index--;
-        if (index == squares) {
-            index = 0;
+        if (index < 0) {
+            index = squares -1;
         }
         highlightSquares();
     });
