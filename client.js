@@ -14,7 +14,7 @@ function appendDom() {
     for (var i = 0; i < squares; i++) {
         $(".container").append("<div class='square'></div>");
         var $sq = $('.container').children().last();
-        $sq.data("square", i);
+        $sq.data("squareIndex", i);
         squareArray.push($sq);
 
 
@@ -24,9 +24,10 @@ function appendDom() {
             '<p class="shout">' + peopleArray[i].shoutout + '<p>');
         $pl.data("person", i);
         shoutoutArray.push($pl);
-        // peopleArray[i] = $pl; Can do this instead of pushig into a newarray
+        // peopleArray[i] = $pl; Can do this instead of pushing into a newarray
         //storing the entire array into the element
     }
+
     highlightSquares();
 }
 
@@ -58,14 +59,19 @@ function buttonClick() {
             $('.info').fadeIn(2000);
         });
     });
+
+    $('.square').on("click", function() {
+        index = parseInt($(this).data("squareIndex"));
+        highlightSquares();
+    });
 }
 
 function highlightSquares() {
     for (var i = 0; i < shoutoutArray.length; i++) {
-        if (squareArray[i].data("square") == index) {
+        if (squareArray[i].data("squareIndex") == index) {
             $(squareArray[i]).addClass("highlight");
             shoutoutArray[i].show();
-        } else if (squareArray[i].data("square") != index) {
+        } else if (squareArray[i].data("squareIndex") != index) {
             $(squareArray[i]).removeClass("highlight");
             shoutoutArray[i].hide();
         }
