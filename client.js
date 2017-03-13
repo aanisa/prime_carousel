@@ -39,24 +39,24 @@ function buttons() {
 
 function buttonClick() {
     $('.next').on('click', function() {
-        $('.info').fadeOut(2000, function() {
+        $('.info').fadeOut(1000, function() {
             index++;
             if (index >= circles) {
                 index = 0;
             }
             highlightCircles();
-            $('.info').fadeIn(2000);
+            $('.info').fadeIn(1000);
         });
 
     });
     $('.prev').on('click', function() {
-        $('.info').fadeOut(2000, function() {
+        $('.info').fadeOut(1000, function() {
             index--;
             if (index < 0) {
                 index = circles - 1;
             }
             highlightCircles();
-            $('.info').fadeIn(2000);
+            $('.info').fadeIn(1000);
         });
     });
 
