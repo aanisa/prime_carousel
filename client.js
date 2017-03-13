@@ -38,26 +38,33 @@ function buttons() {
 
 function buttonClick() {
     $('.next').on('click', function() {
+      $('.info').fadeOut(2000, function(){
         index++;
         if (index >= squares) {
             index = 0;
         }
        highlightSquares();
+       $('.info').fadeIn(2000);
+      })
+
     });
     $('.prev').on('click', function() {
+      $('.info').fadeOut(2000, function(){
         index--;
         if (index < 0) {
             index = squares -1;
         }
         highlightSquares();
+        $('.info').fadeIn(2000);
     });
+  });
 }
 
 function highlightSquares() {
     for (var i = 0; i < shoutoutArray.length; i++) {
         if (squareArray[i].data("square") == index) {
             $(squareArray[i]).addClass("highlight");
-            shoutoutArray[i].fadeIn(2000);
+            shoutoutArray[i].show();
         } else if (squareArray[i].data("square") != index) {
             $(squareArray[i]).removeClass("highlight");
             shoutoutArray[i].hide();
