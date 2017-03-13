@@ -55,7 +55,7 @@ function highlightSquares() {
     for (var i = 0; i < shoutoutArray.length; i++) {
         if (squareArray[i].data("square") == count) {
             $(squareArray[i]).addClass("highlight");
-            shoutoutArray[i].show();
+            shoutoutArray[i].fadeIn(4000);
         } else if (squareArray[i].data("square") != count) {
             $(squareArray[i]).removeClass("highlight");
             shoutoutArray[i].hide();
