@@ -40,7 +40,7 @@ function buttonClick() {
         if (count == squares) {
             count = 0;
         }
-        highlightSquares();
+       highlightSquares();
     });
     $('.prev').on('click', function() {
         count--;
