@@ -1,4 +1,4 @@
-var count = 0;
+var index = 0;
 var squares = peopleArray.length;
 var squareArray = [];
 var shoutoutArray = [];
@@ -24,6 +24,8 @@ function appendDom() {
                    '<p class="shout">' + peopleArray[i].shoutout + '<p>');
         $pl.data("person", i);
         shoutoutArray.push($pl);
+        // peopleArray[i] = $pl; Can do this instead of pushig into a newarray
+        //storing the entire array into the element
     }
     highlightSquares();
 }
@@ -36,16 +38,16 @@ function buttons() {
 
 function buttonClick() {
     $('.next').on('click', function() {
-        count++;
-        if (count == squares) {
-            count = 0;
+        index++;
+        if (index == squares) {
+            index = 0;
         }
        highlightSquares();
     });
     $('.prev').on('click', function() {
-        count--;
-        if (count == squares) {
-            count = 0;
+        index--;
+        if (index == squares) {
+            index = 0;
         }
         highlightSquares();
     });
@@ -53,13 +55,13 @@ function buttonClick() {
 
 function highlightSquares() {
     for (var i = 0; i < shoutoutArray.length; i++) {
-        if (squareArray[i].data("square") == count) {
+        if (squareArray[i].data("square") == index) {
             $(squareArray[i]).addClass("highlight");
             shoutoutArray[i].fadeIn(4000);
-        } else if (squareArray[i].data("square") != count) {
+        } else if (squareArray[i].data("square") != index) {
             $(squareArray[i]).removeClass("highlight");
             shoutoutArray[i].hide();
         }
     }
-    $('.page').text("Chiyak: " + (count + 1) + "/19");
+    $('.page').text("Chiyak: " + (index + 1) + "/19");
 }
