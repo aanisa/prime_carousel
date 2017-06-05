@@ -16,7 +16,3 @@ http://i.imgur.com/9Dkkrci.png
 
 ### HARD MODE
 Include a fade out and fade in animation in-between transitioning people.
-
-### To View
-* Download Project
-* Open index.html in a browsr
