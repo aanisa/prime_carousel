@@ -1,6 +1,6 @@
 # Prime Digital Academy - Code Challenge
 
-## BASE MODE
+### BASE MODE
 
 We have created a Javascript file that has an array of Objects. Each one of you is represented as an object with some shout out feedback given to you by your peers! 
 
